@@ -1,0 +1,43 @@
+GET https://localhost:5001/api/students/1
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+GET https://localhost:5001/api/students?orderBy=LOL
+Accept: */*
+Cache-Control: no-cache
+
+###
+
+POST https://localhost:5001/api/students
+Accept: application/json
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+  "idStudent": 1,
+  "firstName": "Marek",
+  "lastName": "Lewandowski"
+}
+
+###
+
+PUT https://localhost:5001/api/students
+Accept: application/json
+Cache-Control: no-cache
+Content-Type: application/json
+
+{
+"idStudent": 1,
+"firstName": "Marek",
+"lastName": "Lewandowski"
+}
+
+###
+
+DELETE https://localhost:5001/api/students/1
+Accept: application/json
+Cache-Control: no-cache
+Content-Type: application/json
+
