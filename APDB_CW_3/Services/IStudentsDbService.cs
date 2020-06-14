@@ -1,3 +1,5 @@
+using APDB_CW_3.Models;
+
 namespace APDB_CW_3.Services
 {
     public interface IStudentsDbService
@@ -17,5 +19,11 @@ namespace APDB_CW_3.Services
         public int? GetIdEnrollment(int IdStudy, int Semester);
 
         public bool StudentExists(string IndexNumber);
+
+        public StudentSecurityData GetStudentSecurityData(string IndexNumber);
+
+        public void UpdatePassword(string IndexNumber, string Salt, string PasswordHash);
+
+        public void UpdateRefreshToken(string IndexNumber, string RefreshToken);
     }
 }

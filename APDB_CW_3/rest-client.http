@@ -43,11 +43,37 @@ Content-Type: application/json
 
 ###
 
-GET https://localhost:5001/api/students/1/enrollments
-Index: s1234
+POST https://localhost:5001/api/enrollments
+Index: s1
 Accept: */*
 Cache-Control: no-cache
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiczEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJlbXBsb3llZSIsImV4cCI6MTU5MjE0NDYyOSwiaXNzIjoiTWFyZWtMZXdhbmRvd3NraSIsImF1ZCI6IlN0dWRlbnRzIn0.DOd7kJ2CmLC_Jy2P7DPdX0GdcxWiYPepzBMWj4PX7Xs
 
+{
+  "IndexNumber": "s13421",
+  "FirstName": "Andrzej",
+  "LastName": "Malewski",
+  "BirthDate": "1995-06-18",
+  "Studies": "IT"
+}
+
+###
+
+POST https://localhost:5001/api/enrollments
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiczEzNDQ1IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoic3R1ZGVudCIsImV4cCI6MTU5MjE0MDA3NiwiaXNzIjoiTWFyZWtMZXdhbmRvd3NraSIsImF1ZCI6IlN0dWRlbnRzIn0.FH7M8BF8c1FgczBcwwGNypzg20UN1p_ONrudYfqTMtY
+Index: s13445
+Accept: */*
+Content-Type: application/json
+Cache-Control: no-cache
+
+{
+  "IndexNumber": "s13421",
+  "FirstName": "Andrzej",
+  "LastName": "Malewski",
+  "BirthDate": "1995-06-18",
+  "Studies": "IT"
+}
 ###
 
 POST  https://localhost:5001/api/enrollments HTTP/1.1
@@ -70,3 +96,54 @@ Content-Type: application/json
   "Studies": "IT",
   "Semester": 1
 }
+
+###
+
+POST https://localhost:5001/api/security/login
+Content-Type: application/json
+Index: s1
+
+{
+  "IndexNumber": "s1",
+  "PlainPassword": "Haslo"
+}
+
+###
+# Zwróciło:
+# {
+#  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiczEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJlbXBsb3llZSIsImV4cCI6MTU5MjEzOTgxNSwiaXNzIjoiTWFyZWtMZXdhbmRvd3NraSIsImF1ZCI6IlN0dWRlbnRzIn0.p1QwnpF0jbqiIhV9byutjdYZpijFsZ6yLduZSiR3_A0",
+#  "refreshToken": "ac2f62a1-a0aa-4f71-b050-bb4efc1bbe68"
+#}
+
+POST https://localhost:5001/api/security/refreshToken
+Content-Type: application/json
+Index: s1
+
+{
+  "IndexNumber": "s1",
+  "RefreshToken": "ac2f62a1-a0aa-4f71-b050-bb4efc1bbe68"
+}
+
+###
+# Zwróciło:
+#{
+#  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiczEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJlbXBsb3llZSIsImV4cCI6MTU5MjEzOTkxMCwiaXNzIjoiTWFyZWtMZXdhbmRvd3NraSIsImF1ZCI6IlN0dWRlbnRzIn0.vjICWscj2piL3YPqYKmP0s19CHnrbvV7r-E8q_VSIRs"
+#}
+
+###
+
+POST https://localhost:5001/api/security/login
+Content-Type: application/json
+Index: s13445
+
+{
+  "IndexNumber": "s13445",
+  "PlainPassword": "Haslo"
+}
+
+###
+# Zwróciło:
+# {
+#  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiczEzNDQ1IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoic3R1ZGVudCIsImV4cCI6MTU5MjE0MDA3NiwiaXNzIjoiTWFyZWtMZXdhbmRvd3NraSIsImF1ZCI6IlN0dWRlbnRzIn0.FH7M8BF8c1FgczBcwwGNypzg20UN1p_ONrudYfqTMtY",
+#  "refreshToken": "5fc897f7-0b38-470c-8cf1-6abb694a1590"
+#}

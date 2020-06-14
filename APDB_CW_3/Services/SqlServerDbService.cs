@@ -163,5 +163,63 @@ namespace APDB_CW_3.Services
                 return result != null;
             }
         }
+
+        public StudentSecurityData GetStudentSecurityData(string IndexNumber)
+        {
+            using (var con =
+                new SqlConnection("Data Source=127.0.0.1,1433;Database=master;User Id=sa;Password=password1337;"))
+            using (var com = new SqlCommand())
+            {
+                con.Open();
+                com.CommandText = "SELECT * FROM dbo.Student WHERE IndexNumber = @indexNumber";
+                com.Parameters.AddWithValue("indexNumber", IndexNumber);
+                com.Connection = con;
+                var reader = com.ExecuteReader();
+                if (reader.Read())
+                {
+                    return new StudentSecurityData(
+                        reader["Password"]?.ToString(),
+                        reader["Salt"]?.ToString(),
+                        reader["Role"]?.ToString(),
+                        reader["RefreshToken"]?.ToString()
+                    );
+                }
+
+                return null;
+            }
+        }
+
+        public void UpdatePassword(string IndexNumber, string Salt, string PasswordHash)
+        {
+            using (var con =
+                new SqlConnection("Data Source=127.0.0.1,1433;Database=master;User Id=sa;Password=password1337;"))
+            using (var com = new SqlCommand())
+            {
+                con.Open();
+                com.CommandText =
+                    "UPDATE dbo.Student SET Password = @password, Salt = @salt WHERE IndexNumber = @indexNumber";
+                com.Parameters.AddWithValue("indexNumber", IndexNumber);
+                com.Parameters.AddWithValue("salt", Salt);
+                com.Parameters.AddWithValue("password", PasswordHash);
+                com.Connection = con;
+                com.ExecuteNonQuery();
+            }
+        }
+
+        public void UpdateRefreshToken(string IndexNumber, string RefreshToken)
+        {
+            using (var con =
+                new SqlConnection("Data Source=127.0.0.1,1433;Database=master;User Id=sa;Password=password1337;"))
+            using (var com = new SqlCommand())
+            {
+                con.Open();
+                com.CommandText =
+                    "UPDATE dbo.Student SET RefreshToken = @refreshToken WHERE IndexNumber = @indexNumber";
+                com.Parameters.AddWithValue("indexNumber", IndexNumber);
+                com.Parameters.AddWithValue("refreshToken", RefreshToken);
+                com.Connection = con;
+                com.ExecuteNonQuery();
+            }
+        }
     }
 }
