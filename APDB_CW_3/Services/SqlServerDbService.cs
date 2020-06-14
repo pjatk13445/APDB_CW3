@@ -148,5 +148,20 @@ namespace APDB_CW_3.Services
                 return int.Parse(enrollmentRersult.ToString());
             }
         }
+
+        public bool StudentExists(string IndexNumber)
+        {
+            using (var con =
+                new SqlConnection("Data Source=127.0.0.1,1433;Database=master;User Id=sa;Password=password1337;"))
+            using (var com = new SqlCommand())
+            {
+                con.Open();
+                com.CommandText = "SELECT 1 FROM dbo.Student WHERE IndexNumber = @indexNumber";
+                com.Parameters.AddWithValue("indexNumber", IndexNumber);
+                com.Connection = con;
+                object result = com.ExecuteScalar();
+                return result != null;
+            }
+        }
     }
 }

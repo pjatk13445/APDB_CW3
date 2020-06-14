@@ -15,5 +15,7 @@ namespace APDB_CW_3.Services
         public bool PromoteStudents(string Studies, int Semester);
 
         public int? GetIdEnrollment(int IdStudy, int Semester);
+
+        public bool StudentExists(string IndexNumber);
     }
 }
