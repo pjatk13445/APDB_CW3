@@ -41,3 +41,8 @@ Accept: application/json
 Cache-Control: no-cache
 Content-Type: application/json
 
+###
+
+GET https://localhost:5001/api/students/1/enrollments
+Accept: */*
+Cache-Control: no-cache
