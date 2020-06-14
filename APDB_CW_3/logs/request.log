@@ -1,0 +1,42 @@
+{"Method":"GET","Path":"/api/students/1/enrollments","QueryString":"","Body":""}
+{"Method":"GET","Path":"/api/students/1/enrollments","QueryString":"","Body":""}
+{"Method":"GET","Path":"/api/students/1/enrollments","QueryString":"","Body":""}
+{"Method":"GET","Path":"/api/students/1/enrollments","QueryString":"","Body":""}
+{"Method":"GET","Path":"/api/students/1/enrollments","QueryString":"","Body":""}
+{"Method":"POST","Path":"/api/security/login","QueryString":"","Body":"{\n  \u0022IndexNumber\u0022: \u0022s1\u0022,\n  \u0022Password\u0022: \u0022Haslo\u0022\n}"}
+{"Method":"POST","Path":"/api/security/login","QueryString":"","Body":"{\n  \u0022IndexNumber\u0022: \u0022s1\u0022,\n  \u0022PlainPassword\u0022: \u0022Haslo\u0022\n}"}
+{"Method":"POST","Path":"/api/security/login","QueryString":"","Body":"{\n  \u0022IndexNumber\u0022: \u0022s1\u0022,\n  \u0022PlainPassword\u0022: \u0022Haslo\u0022\n}"}
+{"Method":"POST","Path":"/api/security/login","QueryString":"","Body":"{\n  \u0022IndexNumber\u0022: \u0022s1\u0022,\n  \u0022PlainPassword\u0022: \u0022Haslo\u0022\n}"}
+{"Method":"POST","Path":"/api/security/login","QueryString":"","Body":"{\n  \u0022IndexNumber\u0022: \u0022s1\u0022,\n  \u0022PlainPassword\u0022: \u0022Haslo\u0022\n}"}
+{"Method":"POST","Path":"/api/security/login","QueryString":"","Body":"{\n  \u0022IndexNumber\u0022: \u0022s1\u0022,\n  \u0022PlainPassword\u0022: \u0022Haslo\u0022\n}"}
+{"Method":"POST","Path":"/api/security/login","QueryString":"","Body":"{\n  \u0022IndexNumber\u0022: \u0022s1\u0022,\n  \u0022PlainPassword\u0022: \u0022Haslo\u0022\n}"}
+{"Method":"POST","Path":"/api/security/login","QueryString":"","Body":"{\n  \u0022IndexNumber\u0022: \u0022s1\u0022,\n  \u0022PlainPassword\u0022: \u0022Haslo\u0022\n}"}
+{"Method":"POST","Path":"/api/security/login","QueryString":"","Body":"{\n  \u0022IndexNumber\u0022: \u0022s1\u0022,\n  \u0022PlainPassword\u0022: \u0022Haslo\u0022\n}"}
+{"Method":"POST","Path":"/api/security/login","QueryString":"","Body":"{\n  \u0022IndexNumber\u0022: \u0022s1\u0022,\n  \u0022PlainPassword\u0022: \u0022Haslo\u0022\n}"}
+{"Method":"POST","Path":"/api/security/refreshToken","QueryString":"","Body":"{\n  \u0022IndexNumber\u0022: \u0022s1\u0022,\n  \u0022RefreshToken\u0022: \u0022ac2f62a1-a0aa-4f71-b050-bb4efc1bbe68\u0022\n}"}
+{"Method":"POST","Path":"/api/security/refreshToken","QueryString":"","Body":"{\n  \u0022IndexNumber\u0022: \u0022s1\u0022,\n  \u0022RefreshToken\u0022: \u0022ac2f62a1-a0aa-4f71-b050-bb4efc1bbe68\u0022\n}"}
+{"Method":"POST","Path":"/api/security/refreshToken","QueryString":"","Body":"{\n  \u0022IndexNumber\u0022: \u0022s1\u0022,\n  \u0022RefreshToken\u0022: \u0022ac2f62a1-a0aa-4f71-b050-bb4efc1bbe68\u0022\n}"}
+{"Method":"GET","Path":"/api/students/1/enrollments","QueryString":"","Body":""}
+{"Method":"GET","Path":"/api/students/1/enrollments","QueryString":"","Body":""}
+{"Method":"POST","Path":"/api/security/login","QueryString":"","Body":"{\n  \u0022IndexNumber\u0022: \u0022s13445\u0022,\n  \u0022PlainPassword\u0022: \u0022Haslo\u0022\n}"}
+{"Method":"GET","Path":"/api/students/1/enrollments","QueryString":"","Body":""}
+{"Method":"GET","Path":"/api/enrollments","QueryString":"","Body":"{\n  \u0022IndexNumber\u0022: \u0022s13421\u0022,\n  \u0022FirstName\u0022: \u0022Andrzej\u0022,\n  \u0022LastName\u0022: \u0022Malewski\u0022,\n  \u0022BirthDate\u0022: \u00221995-06-18\u0022,\n  \u0022Studies\u0022: \u0022IT\u0022\n}"}
+{"Method":"POST","Path":"/api/enrollments","QueryString":"","Body":"{\n  \u0022IndexNumber\u0022: \u0022s13421\u0022,\n  \u0022FirstName\u0022: \u0022Andrzej\u0022,\n  \u0022LastName\u0022: \u0022Malewski\u0022,\n  \u0022BirthDate\u0022: \u00221995-06-18\u0022,\n  \u0022Studies\u0022: \u0022IT\u0022\n}"}
+{"Method":"POST","Path":"/api/security/refreshToken","QueryString":"","Body":"{\n  \u0022IndexNumber\u0022: \u0022s1\u0022,\n  \u0022RefreshToken\u0022: \u0022ac2f62a1-a0aa-4f71-b050-bb4efc1bbe68\u0022\n}"}
+{"Method":"POST","Path":"/api/enrollments","QueryString":"","Body":"{\n  \u0022IndexNumber\u0022: \u0022s13421\u0022,\n  \u0022FirstName\u0022: \u0022Andrzej\u0022,\n  \u0022LastName\u0022: \u0022Malewski\u0022,\n  \u0022BirthDate\u0022: \u00221995-06-18\u0022,\n  \u0022Studies\u0022: \u0022IT\u0022\n}"}
+{"Method":"POST","Path":"/api/security/refreshToken","QueryString":"","Body":"{\n  \u0022IndexNumber\u0022: \u0022s1\u0022,\n  \u0022RefreshToken\u0022: \u0022ac2f62a1-a0aa-4f71-b050-bb4efc1bbe68\u0022\n}"}
+{"Method":"POST","Path":"/api/enrollments","QueryString":"","Body":"{\n  \u0022IndexNumber\u0022: \u0022s13421\u0022,\n  \u0022FirstName\u0022: \u0022Andrzej\u0022,\n  \u0022LastName\u0022: \u0022Malewski\u0022,\n  \u0022BirthDate\u0022: \u00221995-06-18\u0022,\n  \u0022Studies\u0022: \u0022IT\u0022\n}"}
+{"Method":"POST","Path":"/api/enrollments","QueryString":"","Body":"{\n  \u0022IndexNumber\u0022: \u0022s13421\u0022,\n  \u0022FirstName\u0022: \u0022Andrzej\u0022,\n  \u0022LastName\u0022: \u0022Malewski\u0022,\n  \u0022BirthDate\u0022: \u00221995-06-18\u0022,\n  \u0022Studies\u0022: \u0022IT\u0022\n}"}
+{"Method":"POST","Path":"/api/enrollments","QueryString":"","Body":"{\n  \u0022IndexNumber\u0022: \u0022s13421\u0022,\n  \u0022FirstName\u0022: \u0022Andrzej\u0022,\n  \u0022LastName\u0022: \u0022Malewski\u0022,\n  \u0022BirthDate\u0022: \u00221995-06-18\u0022,\n  \u0022Studies\u0022: \u0022IT\u0022\n}"}
+{"Method":"POST","Path":"/api/enrollments","QueryString":"","Body":"{\n  \u0022IndexNumber\u0022: \u0022s13421\u0022,\n  \u0022FirstName\u0022: \u0022Andrzej\u0022,\n  \u0022LastName\u0022: \u0022Malewski\u0022,\n  \u0022BirthDate\u0022: \u00221995-06-18\u0022,\n  \u0022Studies\u0022: \u0022IT\u0022\n}"}
+{"Method":"POST","Path":"/api/security/refreshToken","QueryString":"","Body":"{\n  \u0022IndexNumber\u0022: \u0022s1\u0022,\n  \u0022RefreshToken\u0022: \u0022ac2f62a1-a0aa-4f71-b050-bb4efc1bbe68\u0022\n}"}
+{"Method":"POST","Path":"/api/enrollments","QueryString":"","Body":"{\n  \u0022IndexNumber\u0022: \u0022s13421\u0022,\n  \u0022FirstName\u0022: \u0022Andrzej\u0022,\n  \u0022LastName\u0022: \u0022Malewski\u0022,\n  \u0022BirthDate\u0022: \u00221995-06-18\u0022,\n  \u0022Studies\u0022: \u0022IT\u0022\n}"}
+{"Method":"GET","Path":"/api/studens","QueryString":"","Body":"{\n  \u0022IndexNumber\u0022: \u0022s13421\u0022,\n  \u0022FirstName\u0022: \u0022Andrzej\u0022,\n  \u0022LastName\u0022: \u0022Malewski\u0022,\n  \u0022BirthDate\u0022: \u00221995-06-18\u0022,\n  \u0022Studies\u0022: \u0022IT\u0022\n}"}
+{"Method":"GET","Path":"/api/studens/s1","QueryString":"","Body":"{\n  \u0022IndexNumber\u0022: \u0022s13421\u0022,\n  \u0022FirstName\u0022: \u0022Andrzej\u0022,\n  \u0022LastName\u0022: \u0022Malewski\u0022,\n  \u0022BirthDate\u0022: \u00221995-06-18\u0022,\n  \u0022Studies\u0022: \u0022IT\u0022\n}"}
+{"Method":"GET","Path":"/api/studens/enrollments/1","QueryString":"","Body":"{\n  \u0022IndexNumber\u0022: \u0022s13421\u0022,\n  \u0022FirstName\u0022: \u0022Andrzej\u0022,\n  \u0022LastName\u0022: \u0022Malewski\u0022,\n  \u0022BirthDate\u0022: \u00221995-06-18\u0022,\n  \u0022Studies\u0022: \u0022IT\u0022\n}"}
+{"Method":"GET","Path":"/api/students/1","QueryString":"","Body":""}
+{"Method":"GET","Path":"/api/students/1","QueryString":"","Body":""}
+{"Method":"POST","Path":"/api/enrollments","QueryString":"","Body":"{\n  \u0022IndexNumber\u0022: \u0022s13421\u0022,\n  \u0022FirstName\u0022: \u0022Andrzej\u0022,\n  \u0022LastName\u0022: \u0022Malewski\u0022,\n  \u0022BirthDate\u0022: \u00221995-06-18\u0022,\n  \u0022Studies\u0022: \u0022IT\u0022\n}"}
+{"Method":"POST","Path":"/api/security/refreshToken","QueryString":"","Body":"{\n  \u0022IndexNumber\u0022: \u0022s1\u0022,\n  \u0022RefreshToken\u0022: \u0022ac2f62a1-a0aa-4f71-b050-bb4efc1bbe68\u0022\n}"}
+{"Method":"POST","Path":"/api/enrollments","QueryString":"","Body":"{\n  \u0022IndexNumber\u0022: \u0022s13421\u0022,\n  \u0022FirstName\u0022: \u0022Andrzej\u0022,\n  \u0022LastName\u0022: \u0022Malewski\u0022,\n  \u0022BirthDate\u0022: \u00221995-06-18\u0022,\n  \u0022Studies\u0022: \u0022IT\u0022\n}"}
+{"Method":"POST","Path":"/api/enrollments","QueryString":"","Body":"{\n  \u0022IndexNumber\u0022: \u0022s13421\u0022,\n  \u0022FirstName\u0022: \u0022Andrzej\u0022,\n  \u0022LastName\u0022: \u0022Malewski\u0022,\n  \u0022BirthDate\u0022: \u00221995-06-18\u0022,\n  \u0022Studies\u0022: \u0022IT\u0022\n}"}

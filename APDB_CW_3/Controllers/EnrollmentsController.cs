@@ -5,12 +5,14 @@ using System.Globalization;
 using System.Net;
 using APDB_CW_3.Models;
 using APDB_CW_3.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace APDB_CW_3.Controllers
 {
     [ApiController]
     [Route("api/enrollments")]
+    [Authorize(Roles="employee")]
     public class EnrollmentsController : Controller
     {
         private IStudentsDbService db;

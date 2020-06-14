@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using APDB_CW_3.DAL;
 using APDB_CW_3.Middleware;
 using APDB_CW_3.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -14,6 +16,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 
 namespace APDB_CW_3
 {
@@ -30,6 +33,20 @@ namespace APDB_CW_3
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IStudentsDbService, SqlServerDbService>();
+            services.AddSingleton<SecurityService, SecurityService>();
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuer=true,
+                        ValidateAudience=true,
+                        ValidateLifetime=true,
+                        ValidIssuer="MarekLewandowski",
+                        ValidAudience="Students",
+                        IssuerSigningKey=new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["SecretKey"]))
+                    };
+                });
             services.AddControllers();
         }
 
