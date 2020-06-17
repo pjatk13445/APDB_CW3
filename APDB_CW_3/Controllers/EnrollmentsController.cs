@@ -2,7 +2,9 @@ using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
+using System.Linq;
 using System.Net;
+using APDB_CW_3.DbModels;
 using APDB_CW_3.Models;
 using APDB_CW_3.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -12,12 +14,12 @@ namespace APDB_CW_3.Controllers
 {
     [ApiController]
     [Route("api/enrollments")]
-    [Authorize(Roles="employee")]
+    // [Authorize(Roles = "employee")]
     public class EnrollmentsController : Controller
     {
-        private IStudentsDbService db;
+        private SqlServerDbService db;
 
-        public EnrollmentsController(IStudentsDbService db)
+        public EnrollmentsController(SqlServerDbService db)
         {
             this.db = db;
         }
@@ -36,53 +38,88 @@ namespace APDB_CW_3.Controllers
                 return BadRequest("Wypełnij wszystkie dane");
             }
 
-            var idStudy = db.GetIdStudyByName(payload.Studies);
-            if (idStudy == null)
+            var context = new masterContext();
+            var study = context.Studies.Single(s => s.Name.Equals(payload.Studies));
+            if (study == null)
             {
                 return BadRequest("Nie ma takich studiów");
             }
 
-            if (db.EnrollStudent(
-                (int) idStudy,
-                payload.IndexNumber,
-                payload.FirstName,
-                payload.LastName,
-                payload.BirthDate
-            ))
+            var enrollment = context.Enrollment
+                .Where(e => e.Semester.Equals(1))
+                .SingleOrDefault(e => e.IdStudy.Equals(study.IdStudy));
+            if (enrollment == null)
             {
-                return Ok();
+                enrollment = new Enrollment
+                {
+                    Semester = 1,
+                    IdStudy = study.IdStudy,
+                    StartDate = DateTime.Now
+                };
+                context.Enrollment.Add(enrollment);
+                context.SaveChanges();
             }
 
-            return Problem("Wystąpił błąd bazy danych");
+            var student = new Student
+            {
+                IndexNumber = payload.IndexNumber,
+                FirstName = payload.FirstName,
+                LastName = payload.LastName,
+                BirthDate = DateTime.Parse(payload.BirthDate),
+                Role = "student",
+                IdEnrollment = enrollment.IdEnrollment
+            };
+            context.Student.Add(student);
+            context.SaveChanges();
+
+            return Ok("Enrolled");
         }
 
         [HttpPost]
         [Route("promotions")]
         public IActionResult promote(PromoteStudentsPayload payload)
         {
-            using (var con =
-                new SqlConnection("Data Source=127.0.0.1,1433;Database=master;User Id=sa;Password=password1337;"))
-            using (var com = new SqlCommand())
+            var context = new masterContext();
+            var study = context.Studies.Single(s => s.Name.Equals(payload.Studies));
+            if (study == null)
             {
-                var idStudy = db.GetIdStudyByName(payload.Studies);
-                if (idStudy == null)
-                {
-                    return BadRequest("Nie ma takich studiów.");
-                }
-
-                var idEnrollment = db.GetIdEnrollment((int) idStudy, payload.Semester);
-                if (idEnrollment == null)
-                {
-                    return BadRequest("Brak zapisów na podane studia");
-                }
-
-                if (db.PromoteStudents(payload.Studies, payload.Semester))
-                {
-                    return Ok("Wszyscy studenci otrzymali promocję :)");
-                }
-
-                return Problem("Wystąpikł błąd bazy danych");
+                return BadRequest("Nie ma takich studiów");
             }
+
+            var oldEnrolment = context.Enrollment
+                .Where(e => e.Semester.Equals(payload.Semester))
+                .SingleOrDefault(e => e.IdStudy.Equals(study.IdStudy));
+            if (oldEnrolment == null)
+            {
+                return BadRequest("Nie znaleziono zapisów na podane studia");
+            }
+
+            var newEnrolment = context.Enrollment
+                .Where(e => e.Semester.Equals(payload.Semester + 1))
+                .SingleOrDefault(e => e.IdStudy.Equals(study.IdStudy));
+
+            if (newEnrolment == null)
+            {
+                var newEnrollment = new Enrollment()
+                {
+                    Semester = oldEnrolment.Semester + 1,
+                    IdStudy = study.IdStudy,
+                    StartDate = DateTime.Now
+                };
+                context.Enrollment.Add(newEnrolment);
+                context.SaveChanges();
+            }
+
+            var studentsToPromote = context.Student.Where(s => s.IdEnrollment.Equals(oldEnrolment.IdEnrollment))
+                .AsEnumerable();
+            foreach (var student in studentsToPromote)
+            {
+                student.IdEnrollment = newEnrolment.IdEnrollment;
+            }
+
+            context.SaveChanges();
+
+            return Ok("All students promoted :)");
         }
     }
 }

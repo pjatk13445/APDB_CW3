@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using APDB_CW_3.DAL;
 using APDB_CW_3.Middleware;
 using APDB_CW_3.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -32,7 +31,7 @@ namespace APDB_CW_3
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IStudentsDbService, SqlServerDbService>();
+            services.AddSingleton<SqlServerDbService, SqlServerDbService>();
             services.AddSingleton<SecurityService, SecurityService>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
@@ -70,7 +69,7 @@ namespace APDB_CW_3
                 }
 
                 string IndexNumber = context.Request.Headers["Index"].ToString();
-                IStudentsDbService db = (IStudentsDbService) app.ApplicationServices.GetService(typeof(IStudentsDbService));
+                SqlServerDbService db = (SqlServerDbService) app.ApplicationServices.GetService(typeof(SqlServerDbService));
                 if (!db.StudentExists(IndexNumber))
                 {
                     context.Response.StatusCode = StatusCodes.Status401Unauthorized;

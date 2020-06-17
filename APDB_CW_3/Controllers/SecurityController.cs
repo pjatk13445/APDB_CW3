@@ -10,10 +10,10 @@ namespace APDB_CW_3.Controllers
     [Route("api/security")]
     public class SecurityController : ControllerBase
     {
-        private IStudentsDbService _db;
+        private SqlServerDbService _db;
         private SecurityService _security;
 
-        public SecurityController(IStudentsDbService db, SecurityService security)
+        public SecurityController(SqlServerDbService db, SecurityService security)
         {
             _db = db;
             _security = security;

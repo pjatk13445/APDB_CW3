@@ -1,11 +1,12 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using APDB_CW_3.DbModels;
 using APDB_CW_3.Models;
 
 namespace APDB_CW_3.Services
 {
-    public class SqlServerDbService : IStudentsDbService
+    public class SqlServerDbService
     {
         public int? GetIdStudyByName(string Studies)
         {
@@ -84,12 +85,12 @@ namespace APDB_CW_3.Services
                             con3.Parameters.AddWithValue("IdEnrollment", IdEnrollment);
                             con3.ExecuteNonQuery();
                             transaction.Commit();
-                            var enrolment = new Enrollment(IdEnrollment, 1, IdStudy, DateTime.Now);
+                            var enrolment = new Enrollment();
                             return true;
                         }
                     }
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     transaction.Rollback();
                     return false;
@@ -123,8 +124,6 @@ namespace APDB_CW_3.Services
 
                 return true;
             }
-
-            return false;
         }
 
         public int? GetIdEnrollment(int IdStudy, int Semester)

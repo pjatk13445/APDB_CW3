@@ -1,0 +1,27 @@
+﻿<Properties StartupConfiguration="{BDFAC7BF-E48B-4995-BD93-4458FB82405F}|Default">
+  <MonoDevelop.Ide.ItemProperties.APDB__CW__3 PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="APDB_CW_3/DbModels/masterContext.cs">
+    <Files>
+      <File FileName="APDB_CW_3/DbModels/masterContext.cs" Line="14" Column="28" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="APDB_CW_3" expanded="True">
+            <Node name="APDB_CW_3" expanded="True">
+              <Node name="DbModels" expanded="True">
+                <Node name="masterContext.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

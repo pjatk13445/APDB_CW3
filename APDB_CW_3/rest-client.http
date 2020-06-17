@@ -1,12 +1,14 @@
 GET https://localhost:5001/api/students/1
 Accept: */*
+Index: s1
 Cache-Control: no-cache
 
 ###
 
-GET https://localhost:5001/api/students?orderBy=LOL
+GET https://localhost:5001/api/students
 Accept: */*
 Cache-Control: no-cache
+Index: s1
 
 ###
 
@@ -20,16 +22,15 @@ Content-Type: application/json
   "firstName": "Marek",
   "lastName": "Lewandowski"
 }
-
 ###
 
-PUT https://localhost:5001/api/students
+PUT https://localhost:5001/api/students/s1
 Accept: application/json
 Cache-Control: no-cache
 Content-Type: application/json
+Index: s1
 
 {
-  "idStudent": 1,
   "firstName": "Marek",
   "lastName": "Lewandowski"
 }
@@ -51,7 +52,7 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiczEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJlbXBsb3llZSIsImV4cCI6MTU5MjE0NDYyOSwiaXNzIjoiTWFyZWtMZXdhbmRvd3NraSIsImF1ZCI6IlN0dWRlbnRzIn0.DOd7kJ2CmLC_Jy2P7DPdX0GdcxWiYPepzBMWj4PX7Xs
 
 {
-  "IndexNumber": "s13421",
+  "IndexNumber": "s13422",
   "FirstName": "Andrzej",
   "LastName": "Malewski",
   "BirthDate": "1995-06-18",
@@ -90,7 +91,9 @@ Content-Type: application/json
 ###
 
 POST https://localhost:5001/api/enrollments/promotions
+Index: s1
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiczEiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJlbXBsb3llZSIsImV4cCI6MTU5MjEzOTkxMCwiaXNzIjoiTWFyZWtMZXdhbmRvd3NraSIsImF1ZCI6IlN0dWRlbnRzIn0.vjICWscj2piL3YPqYKmP0s19CHnrbvV7r-E8q_VSIRs
 
 {
   "Studies": "IT",
